@@ -92,7 +92,7 @@ data:
     {{ $configValue }}
   {{- end }}
 
-  {{- if eq .Values.server.config.authenticationType "PASSWORD" }}
+  {{- if contains .Values.server.config.authenticationType "PASSWORD" }}
   password-authenticator.properties: |
     password-authenticator.name=file
     file.password-file={{ .Values.server.config.path }}/auth/password.db

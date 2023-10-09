@@ -55,7 +55,7 @@ spec:
           configMap:
             name: trino-access-control-volume-coordinator
         {{- end }}{{- end }}
-        {{- if eq .Values.server.config.authenticationType "PASSWORD" }}
+        {{- if contains .Values.server.config.authenticationType "PASSWORD" }}
         - name: password-volume
           secret:
             secretName: trino-password-authentication
